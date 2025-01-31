@@ -1,7 +1,7 @@
 import type React from "react"
 import { memo } from "react"
 import { Handle, Position } from "reactflow"
-import type { Wish } from "../utils/api"
+import type { Wish } from "@/lib/api"
 
 interface WishNodeProps {
   data: Wish
@@ -27,7 +27,7 @@ const WishNode: React.FC<WishNodeProps> = ({ data }) => {
           <div className="flex">
             {data.reactions.map((reaction, index) => (
               <span key={index} className="mr-2">
-                {reaction}
+                {reaction.name} ({reaction.count})
               </span>
             ))}
           </div>

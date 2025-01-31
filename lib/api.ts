@@ -1,16 +1,11 @@
-// const MEILISEARCH_URL = process.env.MEILISEARCH_URL
-// const SEARCH_API_KEY = process.env.SEARCH_API_KEY
-// const ADMIN_API_KEY = process.env.MEILISEARCH_API_KEY
-
 const MEILISEARCH_URL = process.env.NEXT_PUBLIC_MEILISEARCH_URL
 const SEARCH_API_KEY = process.env.NEXT_PUBLIC_SEARCH_API_KEY
-const ADMIN_API_KEY = process.env.MEILISEARCH_API_KEY
 
 export interface Wish {
   ts: string
   user: string
   text: string
-  reactions?: any[]
+  reactions?: Array<{ name: string; count: number }>
   upvotes: number
   pfp: string
 }
@@ -18,7 +13,7 @@ export interface Wish {
 export interface SearchResult {
   hits: Wish[]
   query: string
-  processingTimeMs: number  
+  processingTimeMs: number
   limit: number
   offset: number
   estimatedTotalHits: number
@@ -34,8 +29,7 @@ export async function searchMeilisearch(query = "", limit = 20, offset = 0, sort
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // Change this line - use SEARCH_API_KEY instead of ADMIN_API_KEY
-        Authorization: `Bearer ${SEARCH_API_KEY}`, 
+        Authorization: `Bearer ${SEARCH_API_KEY}`,
       },
       body: JSON.stringify({
         q: query,
