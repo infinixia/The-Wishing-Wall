@@ -1,6 +1,7 @@
 import type React from "react"
 import { useState } from "react"
 import { Search } from "lucide-react"
+import { Star, TreesIcon as Tree } from 'lucide-react';
 
 interface FilterSortProps {
   onSortChange: (sort: string) => void
@@ -44,6 +45,32 @@ const FilterSort: React.FC<FilterSortProps> = ({ onSortChange, onSearch, onItems
           <option value={40}>40 per page</option>
         </select>
       </div>
+      <div className="flex justify-center items-center">
+    <div className="relative w-96 h-15">
+        <svg className="w-full h-full" viewBox="0 0 480 80" preserveAspectRatio="xMidYMid meet">
+          <path
+            d="M 48,16 Q 240,45 432,16 L 432,64 Q 240,88 48,64 Z"
+            fill="none"
+            stroke="#C41E3A"
+            strokeWidth="3"
+          />
+          <defs>
+            <path id="curve" d="M 48,48 Q 240,72 432,48" fill="transparent" />
+          </defs> 
+          <text className="fill-[#EF4444] text-4xl font-bold">
+            <textPath href="#curve" startOffset="50%" textAnchor="middle">
+              THE WISHING WALL 
+            </textPath>
+          </text>
+        </svg>
+        {/* <Star className="absolute top-0 left-0 w-6 h-6 text-yellow-400" /> */}
+        {/* <Star className="absolute top-0 right-0 w-6 h-6 text-yellow-400" /> */}
+        {/* <Tree className="absolute bottom-0 left-0 w-6 h-6 text-[#165B33]" /> */}
+        {/* <Tree className="absolute bottom-0 right-0 w-6 h-6 text-[#165B33]" /> */}
+    </div>
+</div>
+
+
       <form onSubmit={handleSearch} className="flex">
         <input
           type="text"
