@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.react-flow__node {
+  padding: 0;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #222;
+  text-align: left;
+  border: none;
+}
+
+.react-flow__node-wish {
+  background-color: transparent;
+}
+
+.react-flow__handle {
+  display: none;
+}
+
+.react-flow__controls {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.react-flow__controls button {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure links wrap properly */
+a {
+  @apply text-blue-500 hover:underline inline-block max-w-full;
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
