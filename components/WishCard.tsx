@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Wish } from "../utils/api"
+import type { Wish } from "@/lib/api"
 
 interface WishCardProps {
   wish: Wish
