@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from "react"
 
 export const Snowfall = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -9,7 +9,7 @@ export const Snowfall = () => {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    const ctx = canvas.getContext('2d')
+    const ctx = canvas.getContext("2d") as CanvasRenderingContext2D
     if (!ctx) return
 
     canvas.width = window.innerWidth
@@ -22,13 +22,14 @@ export const Snowfall = () => {
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         radius: Math.random() * 4 + 1,
-        speed: Math.random() * 3 + 1
+        speed: Math.random() * 3 + 1,
       })
     }
 
     function drawSnowflakes() {
+      if (!ctx) return
       ctx.clearRect(0, 0, canvas.width, canvas.height)
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.8)'
+      ctx.fillStyle = "rgba(255, 255, 255, 0.8)"
       ctx.beginPath()
       for (const flake of snowflakes) {
         ctx.moveTo(flake.x, flake.y)
@@ -55,14 +56,13 @@ export const Snowfall = () => {
       canvas.height = window.innerHeight
     }
 
-    window.addEventListener('resize', handleResize)
+    window.addEventListener("resize", handleResize)
 
     return () => {
-      window.removeEventListener('resize', handleResize)
+      window.removeEventListener("resize", handleResize)
     }
   }, [])
 
   return <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full pointer-events-none" />
 }
 
-    
