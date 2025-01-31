@@ -30,7 +30,7 @@ export const Snowfall = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       ctx.fillStyle = 'rgba(255, 255, 255, 0.8)'
       ctx.beginPath()
-      for (let flake of snowflakes) {
+      for (const flake of snowflakes) {
         ctx.moveTo(flake.x, flake.y)
         ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2, true)
       }
@@ -40,7 +40,7 @@ export const Snowfall = () => {
     }
 
     function moveSnowflakes() {
-      for (let flake of snowflakes) {
+      for (const flake of snowflakes) {
         flake.y += flake.speed
         if (flake.y > canvas.height) {
           flake.y = 0
